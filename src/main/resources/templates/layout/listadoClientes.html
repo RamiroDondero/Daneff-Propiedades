@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Listado de Clientes</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="listadoClientes" id="clientes" >
+            <div class="container-fluid">
+                <div class="row justify-content-md-center">
+                    <div class="col-bg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col col-md-offset-2">
+                                                <div class=" d-flex justify-content-between align-items-center">
+                                                    <h4>Lista de Clientes</h4>
+                                                    <a th:href="@{/exportarclientes}" type="button" class="btn btn-dark">Descargar</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div th:if="${clientes != null and !clientes.empty}">
+                                <table class="table table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr align="center">
+                                            <th>#</th>
+                                            <th>Direccion</th>
+                                            <th>Cod.Inmokey</th>
+                                            <th>Cod.Mardel</th>
+                                            <th>Propietario</th>
+                                            <th>Telefono</th>
+                                            <th>Valor</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="cliente,contador : ${clientes}" class="table-secondary" align="center">
+                                        <td>[[${contador.count}]]</td>
+                                        <td th:text="${cliente.direccion}">direccion</td>
+                                        <td th:text="${cliente.codInmokey}">codInmokey</td>
+                                        <td th:text="${cliente.codMardel}">codMardel</td>
+                                        <td th:text="${cliente.propietario}">propietario</td>
+                                        <td th:text="${cliente.telefono}">telefono</td>
+                                        <div th:if="${cliente.valor!=null}">
+                                            <td th:text="${moneda.format(cliente.valor)}">Valor</td>
+                                        </div>
+                                        <div th:if="${cliente.valor==null}">
+                                            <td th:text="${cliente.valor}">Valor</td>
+                                        </div>
+                                        <td>
+                                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/}+${cliente.idCliente}" class="btn btn-secondary">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminar/}+${cliente.idCliente}" class="btn btn-dark">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

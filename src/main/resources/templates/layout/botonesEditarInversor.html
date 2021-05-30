@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http:www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Botones Editar Inversor</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <section th:fragment="botonesEditarInversor">
+            <div id="actions" class="py-4 mb-4 bg-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a th:href="@{/inversores}" class="btn btn-light btn-block">
+                                <i class="fas fa-arrow-left"></i> Regresar
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-dark btn-block">
+                                <i class="fa fa-check"></i> Guardar
+                            </button> 
+                        </div>
+                        <div class="col-md-3">
+                            <a th:href="@{/eliminarinv/}+${inversor.idInversor}" class="btn btn-dark btn-block">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http:www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>Modificar</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        
+        <section th:replace="layout/editarInversor:: editarInversor"></section>
+        
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+     <script>
+            function limite(obj) {
+                if (obj.value.length > obj.maxLength) {
+                    obj.value = obj.value.slice(0, obj.maxLength);
+                }
+
+            }
+       
+    </script>
+</html>

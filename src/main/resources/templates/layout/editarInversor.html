@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http:www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Editar Inversor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section th:fragment="editarInversor">
+            <form th:action="@{/guardarinv}" method="post" th:object="${inversor}" class="was-validated">
+
+                <input type="hidden" name="idInversor" th:field="*{idInversor}"/>
+                <section th:replace="layout/botonesEditarInversor :: botonesEditarInversor"></section>
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Editar</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="direccion">Direccion:</label> 
+                                            <input type="text" name="direccion" th:field="*{direccion}" class="form-control" required="true" maxlength="44" oninput="limite(this);"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="codinmokey">Cod.Inmokey:</label> 
+                                            <input type="text" name="codinmokey" th:field="*{codInmokey}" class="form-control" maxlength="44" oninput="limite(this);"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="codmardel">Cod.Mardel:</label> 
+                                            <input type="text" name="codmardel" th:field="*{codMardel}" class="form-control" maxlength="44" oninput="limite(this);"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="propietario">Propietario:</label> 
+                                            <input type="text" name="propietario" th:field="*{propietario}" class="form-control" required="true" maxlength="44" oninput="limite(this);"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tel">Telefono:</label> 
+                                            <input type="text" name="tel" th:field="*{telefono}" class="form-control" maxlength="44" oninput="limite(this);"/>
+                                        </div >
+                                        <div class="form-group">
+                                            <label for="valor">Valor:</label> 
+                                            <input type="number" name="valor" th:field="*{valor}" class="form-control" maxlength="8" oninput="limite(this);"/>
+                                        </div>
+
+                                        <fieldset>
+                                            <legend>Comisiones</legend>
+                                            <input type="radio" id="ninguna" name="com" value="0"  th:field="*{com}">
+                                            <label for="com">Ninguna</label><br>
+                                            <input type="radio" id="com3" name="com" value="3" th:field="*{com}">
+                                            <label for="com">Comision 3 %</label><br>
+                                            <input type="radio" id="com6" name="com" value="6" th:field="*{com}">
+                                            <label for="com">Comision 6 %</label><br>
+                                            <input type="radio" id="part" name="com" value="1" th:field="*{com}">
+                                            <label for="com">Particularidad</label>
+                                        </fieldset>
+
+                                        <div class="form-group">
+                                            <label for="notas">Notas:</label> 
+                                            <textarea name="notas" th:field="*{notas}" class="form-control" cols="80" rows="5" maxlength="490" oninput="limite(this);"></textarea>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </section>
+    </body>
+</html>

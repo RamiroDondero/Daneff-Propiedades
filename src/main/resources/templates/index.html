@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/plantilla :: head">
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <header th:replace="layout/plantilla :: header"></header>
+
+        <section>
+            <div id="actions" class="py-4 mb-4 bg-light">
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Lista de Clientes</h5>
+                                    <p class="card-text">Lleva un control de tus potenciales clientes, deja alguna nota relacionada a ellos</p>
+                                    <a th:href="@{/clientes}" class="btn btn-dark">
+                                        <i class="fas fa-arrow-circle-right"></i> Clientes
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Lista de Inversores</h5>
+                                    <p class="card-text">Sigue de cerca a tus inversores, utiliza marcadores para determinar sus comisiones</p>
+                                    <a th:href="@{/inversores}" class="btn btn-dark">
+                                        <i class="fas fa-arrow-circle-right"></i> Inversores
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <div th:fragment="comisionInversores" id="comInversores">
+            <td>[[${contador.count}]]</td>
+            <td th:text="${inversor.direccion}">direccion</td>
+            <td th:text="${inversor.codInmokey}">codInmokey</td>
+            <td th:text="${inversor.codMardel}">codMardel</td>
+            <td th:text="${inversor.propietario}">propietario</td>
+            <td th:text="${inversor.telefono}">telefono</td>
+            <div th:if="${inversor.valor!=null}">
+                <td th:text="${moneda.format(inversor.valor)}">Valor</td>
+            </div>
+            <div th:if="${inversor.valor==null}">
+                <td th:text="${inversor.valor}">Valor</td>
+            </div>
+            <td>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editarinv/}+${inversor.idInversor}" class="btn btn-secondary">
+                    <i class="far fa-edit"></i>
+                </a>
+            </td>
+            <td>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminarinv/}+${inversor.idInversor}" class="btn btn-dark">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+            </td>
+        </div>
+    </body>
+</html>
