@@ -71,7 +71,7 @@ public class ControladorInicio {
 
         cliente = clienteService.encontrarCliente(cliente);
         model.addAttribute("cliente", cliente);
-        return "modificar";
+        return "redirect:/clientes";
     }
 
     @GetMapping("/eliminar/{idCliente}")
