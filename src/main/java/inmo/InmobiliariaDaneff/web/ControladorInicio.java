@@ -69,8 +69,8 @@ public class ControladorInicio {
     @GetMapping("/editar/{idCliente}")
     public String editar(Cliente cliente, Model model) {
 
-       // cliente = clienteService.encontrarCliente(cliente);
-       // model.addAttribute("cliente", cliente);
+        cliente = clienteService.encontrarCliente(cliente);
+        model.addAttribute("cliente", cliente);
         return "modificar";
     }
 
