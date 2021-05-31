@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="cliente", schema="inmo")
+@Table(name="cliente")
 public class Cliente implements Serializable {
     
     private static final long serialVersionUID=1L;

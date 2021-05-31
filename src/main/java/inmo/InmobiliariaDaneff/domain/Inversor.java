@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="inversor", schema="inmo")
+@Table(name="inversor")
 public class Inversor implements Serializable {
     
     private static final long serialVersionUID=1L;
