@@ -22,12 +22,12 @@
                 <td th:text="${inversor.valor}">Valor</td>
             </div>
             <td>
-                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editarinv/}+${inversor.idInversor}" class="btn btn-secondary">
+                <a th:href="@{/editarinv/}+${inversor.idInversor}" class="btn btn-secondary">
                     <i class="far fa-edit"></i>
                 </a>
             </td>
             <td>
-                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminarinv/}+${inversor.idInversor}" class="btn btn-dark">
+                <a th:href="@{/eliminarinv/}+${inversor.idInversor}" class="btn btn-dark">
                     <i class="far fa-trash-alt"></i>
                 </a>
             </td>
