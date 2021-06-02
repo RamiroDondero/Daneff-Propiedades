@@ -16,7 +16,7 @@
                             </button>
                         </div>
                         <form th:action="@{/guardarinv}" th:object="${inversor}" method="post" class="was-validated" >
-                            <input type="hidden" name="com" th:field="${inversor.com==6}"/>
+                            <input type="hidden" name="com" th:field="${inversor.com=6}"/>
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="direccion">Direccion</label>
