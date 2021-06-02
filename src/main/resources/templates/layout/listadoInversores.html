@@ -48,7 +48,7 @@
                                         <tr th:if="${inversor.com==3}" style="background-color: #BB8FCE" >
                                             <div th:replace="layout/comisionInversores :: comisionInversores"></div>
                                         </tr>
-                                        <tr th:if="${inversor.com==null}" >
+                                        <tr th:if="${inversor.com==null or inversor.com==6}" >
                                             <div th:replace="layout/comisionInversores :: comisionInversores"></div>
                                         </tr>
                                         <tr th:if="${inversor.com==1}" class="bg-warning">
