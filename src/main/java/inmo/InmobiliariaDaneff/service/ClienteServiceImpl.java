@@ -24,7 +24,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     @Transactional(readOnly = true)
     public List<Cliente> listarClientes() {
-      return   clienteDao.findAll();
+      return   clienteDao.findByOrderByDireccionAsc();
     }
 
     @Override
