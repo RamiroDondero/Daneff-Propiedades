@@ -24,7 +24,7 @@ public class InversorServiceImpl implements InversorService {
     @Override
     @Transactional(readOnly = true)
     public List<Inversor> listarInversores() {
-        return inversorDao.findAll();
+        return inversorDao.findByOrderByDireccionAsc();
     }
 
     @Override
